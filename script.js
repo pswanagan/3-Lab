@@ -43,6 +43,24 @@ Continuing with the example above, if n is equal to 4, your loop should log 5. S
  */
 
 
+ for (let i = 1; i < 200; i++) {
+   let isPrime = true;
+   let n = 84;
+  for (let j = 2; j < i; j++) {
+
+    if (i % j === 0) {
+      // if this is true, it is NOT a prime number
+      isPrime = false;
+      break;
+     }
+  }
+
+  if (isPrime === true && i > n) {
+     console.log(i);
+     break;
+  }
+ }
+ 
 /**
  * 
  * Part 3: Feeling Loopy
@@ -67,5 +85,22 @@ There will be no escaped characters other than “\n”.
  */
 
 
+const dataString = "Index,Mass (kg),Spring 1 (m),Spring 2 (m)\n1,0.00,0.050,0.050\n2,0.49,0.066,0.066\n3,0.98,0.087,0.080\n4,1.47,0.116,0.108\n5,1.96,0.142,0.138\n6,2.45,0.166,0.158\n7,2.94,0.193,0.174\n8,3.43,0.204,0.192\n9,3.92,0.226,0.205\n10,4.41,0.238,0.232";
 
+// Split the string into lines
+const lines = dataString.split('\n');
 
+// Extract header and data
+const header = lines[0].split(',');
+const data = lines.slice(1).map(line => line.split(','));
+
+// Assign values to separate variables
+const index = data.map(row => parseInt(row[0]));
+const mass = data.map(row => parseFloat(row[1]));
+const spring1 = data.map(row => parseFloat(row[2]));
+const spring2 = data.map(row => parseFloat(row[3]));
+
+for( let m = 0; m < lines.length - 1; m++){
+    console.log(`${header[0]}   ${header[1]}  ${header[2]}  ${header[3]}`)
+    console.log("\n"+ index[m] + "     " + mass[m] + "   " + spring1[m] + "   " + spring2[m]);
+}
