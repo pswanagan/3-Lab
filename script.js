@@ -95,12 +95,12 @@ const header = lines[0].split(',');
 const data = lines.slice(1).map(line => line.split(','));
 
 // Assign values to separate variables
-const index = data.map(row => parseInt(row[0]));
-const mass = data.map(row => parseFloat(row[1]));
-const spring1 = data.map(row => parseFloat(row[2]));
-const spring2 = data.map(row => parseFloat(row[3]));
+const index = data.map(row => row[0]);
+const mass = data.map(row => row[1]);
+const spring1 = data.map(row => row[2]);
+const spring2 = data.map(row => row[3]);
 
 for( let m = 0; m < lines.length - 1; m++){
     console.log(`${header[0]}   ${header[1]}  ${header[2]}  ${header[3]}`)
-    console.log("\n"+ index[m] + "     " + mass[m] + "   " + spring1[m] + "   " + spring2[m]);
+    console.log("\n"+ index[m] + "        " + mass[m] + "        " + spring1[m] + "        " + spring2[m]);
 }
